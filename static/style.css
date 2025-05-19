@@ -1,0 +1,96 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    color: #d6336c;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+button {
+    background-color: #d6336c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 5px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #b02a57;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#options-container {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.option {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background-color: #f8bbd0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    background-color: #f48fb1;
+}
+
+.option.selected {
+    background-color: #d6336c;
+    color: white;
+}
+
+.navigation {
+    margin: 20px 0;
+}
+
+#therapists-container {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.therapist {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
