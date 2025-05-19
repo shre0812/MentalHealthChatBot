@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Buddy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="welcome-screen">
+            <h1>💬 Welcome to Mental Health Buddy 💬</h1>
+            <p>A simple tool to help you assess your mental well-being</p>
+            <button id="start-btn">Start Assessment</button>
+        </div>
+
+        <div id="quiz-container" style="display: none;">
+            <h1 id="question-number">Question 1 of 10</h1>
+            <h2 id="question-text"></h2>
+            <div id="options-container"></div>
+            <div class="navigation">
+                <button id="prev-btn" disabled>⬅️ Previous</button>
+                <button id="next-btn">Next ➡️</button>
+            </div>
+            <button id="submit-btn" disabled>✅ Submit</button>
+        </div>
+
+        <div id="result-container" style="display: none;">
+            <h1>🌟 Your Mental Health Result 🌟</h1>
+            <p id="result-text"></p>
+            <div id="therapists-container"></div>
+            <button id="restart-btn">🔄 Restart</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
