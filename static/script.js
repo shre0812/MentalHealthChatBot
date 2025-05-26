@@ -38,20 +38,21 @@ document.addEventListener('DOMContentLoaded', function() {
         questionText.textContent = questions[currentQuestion].question;
         optionsContainer.innerHTML = '';
 
-        questions[currentQuestion].options.forEach((option, index) => {
+        questions[currentQuestion].options.forEach(option => {
             const optionElement = document.createElement('div');
             optionElement.classList.add('option');
+            optionElement.textContent = option;
+
             if (answers[currentQuestion] === option) {
                 optionElement.classList.add('selected');
             }
-            optionElement.textContent = option;
+
             optionElement.addEventListener('click', function() {
                 selectOption(option);
             });
             optionsContainer.appendChild(optionElement);
         });
 
-        // Update button states
         prevBtn.disabled = currentQuestion === 0;
         nextBtn.disabled = answers[currentQuestion] === null;
         submitBtn.disabled = !answers.every(answer => answer !== null);
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 opt.classList.add('selected');
             }
         });
+
         nextBtn.disabled = false;
         submitBtn.disabled = !answers.every(answer => answer !== null);
     }
@@ -100,16 +102,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             quizContainer.style.display = 'none';
             resultContainer.style.display = 'block';
-            
+
             resultText.textContent = data.text;
             resultText.style.color = data.color;
-            
+
             therapistsContainer.innerHTML = '';
             if (data.show_therapists) {
                 const therapistsTitle = document.createElement('h3');
                 therapistsTitle.textContent = 'Here are some therapists you can contact: 📞';
                 therapistsContainer.appendChild(therapistsTitle);
-                
+
                 data.therapists.forEach(therapist => {
                     const therapistElement = document.createElement('div');
                     therapistElement.classList.add('therapist');

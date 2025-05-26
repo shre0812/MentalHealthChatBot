@@ -9,12 +9,47 @@
 </head>
 <body>
     <div class="container">
+        <!-- Welcome Screen -->
         <div id="welcome-screen">
-            <h1>💬 Welcome to Mental Health Buddy 💬</h1>
-            <p>A simple tool to help you assess your mental well-being</p>
-            <button id="start-btn">Start Assessment</button>
+            <h1>💬 Mental Health Awareness Hub 💬</h1>
+            <div class="info-cards">
+                <div class="info-card anxiety">
+                    <h2>🌪️ Understanding Anxiety</h2>
+                    <img src="{{ url_for('static', filename='Anxiety.jpg') }}" alt="Anxiety Symptoms">
+                    <div class="content">
+                        <p>Common symptoms include:</p>
+                        <ul>
+                            <li>Excessive worry</li>
+                            <li>Restlessness</li>
+                            <li>Muscle tension</li>
+                            <li>Sleep difficulties</li>
+                            <li>Concentration problems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-card depression">
+                    <h2>🌧️ Understanding Depression</h2>
+                    <img src="{{ url_for('static', filename='Depression.jpg') }}" alt="Depression Types">
+                    <div class="content">
+                        <p>Common types include:</p>
+                        <ul>
+                            <li>Major Depressive Disorder</li>
+                            <li>Persistent Depressive Disorder</li>
+                            <li>Seasonal Affective Disorder</li>
+                            <li>Postpartum Depression</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <h2>Ready to check your mental well-being?</h2>
+                <button id="start-btn">Start Assessment 🌟</button>
+            </div>
         </div>
 
+        <!-- Quiz Screen -->
         <div id="quiz-container" style="display: none;">
             <h1 id="question-number">Question 1 of 10</h1>
             <h2 id="question-text"></h2>
@@ -23,13 +58,17 @@
                 <button id="prev-btn" disabled>⬅️ Previous</button>
                 <button id="next-btn">Next ➡️</button>
             </div>
-            <button id="submit-btn" disabled>✅ Submit</button>
+            <div class="submit-wrapper">
+                <button id="submit-btn" disabled>✅ Submit</button>
+            </div>
         </div>
 
+        <!-- Result Screen -->
         <div id="result-container" style="display: none;">
             <h1>🌟 Your Mental Health Result 🌟</h1>
             <p id="result-text"></p>
             <div id="therapists-container"></div>
+            <img src="{{ url_for('static', filename='yoga.jpg') }}" alt="Yoga Image" class="yoga-image">
             <button id="restart-btn">🔄 Restart</button>
         </div>
     </div>

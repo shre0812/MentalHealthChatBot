@@ -1,96 +1,168 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: #333;
+    background: linear-gradient(135deg, #ff99cc 0%, #99ccff 100%);
+    color: #2c3e50;
 }
 
 .container {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     padding: 30px;
     width: 90%;
-    max-width: 600px;
-    text-align: center;
+    max-width: 800px;
+    margin: 20px;
+    backdrop-filter: blur(10px);
 }
 
-h1 {
+.info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.info-card {
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.anxiety {
+    background: linear-gradient(145deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 2px solid #ffab91;
+}
+
+.depression {
+    background: linear-gradient(145deg, #e3f2fd 0%, #bbdefb 100%);
+    border: 2px solid #90caf9;
+}
+
+.info-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h2 {
     color: #d6336c;
-    margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 1.4em;
+    margin-bottom: 15px;
 }
 
-h2 {
-    font-size: 18px;
-    margin: 20px 0;
-    line-height: 1.5;
+.info-card ul {
+    padding-left: 20px;
+    text-align: left;
+    list-style-type: none;
+}
+
+.info-card li {
+    margin: 8px 0;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.assessment-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(145deg, #f0f4c3 0%, #dce775 100%);
+    border-radius: 15px;
+    border: 2px solid #c0ca33;
 }
 
 button {
-    background-color: #d6336c;
+    background: linear-gradient(145deg, #d6336c 0%, #ad1457 100%);
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 10px 5px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #b02a57;
     transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    transform: none;
+/* Quiz Container Styles */
+#quiz-container h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
 }
 
 #options-container {
-    margin: 20px 0;
-    text-align: left;
+    margin: 30px 0;
 }
 
 .option {
-    display: block;
-    margin: 10px 0;
-    padding: 10px 15px;
+    margin: 15px 0;
+    padding: 15px;
     background-color: #f8bbd0;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.option:hover {
-    background-color: #f48fb1;
-}
-
 .option.selected {
-    background-color: #d6336c;
+    background-color: #f06292;
     color: white;
+    font-weight: bold;
+    border: 2px solid #ad1457;
 }
 
 .navigation {
-    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
 }
 
-#therapists-container {
-    margin: 20px 0;
-    text-align: left;
+.submit-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.therapist {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+.yoga-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 25px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .info-card img {
+        height: 150px;
+    }
 }

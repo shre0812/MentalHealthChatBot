@@ -13,13 +13,13 @@ therapists = [
 questions = [
     {"question": "How often do you feel down, depressed, or hopeless? 😔", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
     {"question": "Do you feel little interest or pleasure in doing things? 🎨", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
-    {"question": "Do you struggle with sleep (too much or too little)? 😴", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
+    {"question": "Do you struggle with sleep (too much or too little)? 🛌", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
     {"question": "Do you experience feelings of anxiety or panic? 😰", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
     {"question": "Do you feel tired or have little energy? 🔋", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
     {"question": "Do you have difficulty concentrating? 📚", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
-    {"question": "Do you feel bad about yourself — or that you are a failure? 😢", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
-    {"question": "Do you feel isolated or lonely? 🧍‍♂️", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
-    {"question": "Do you experience mood swings? 🌦️", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
+    {"question": "Do you feel bad about yourself — or that you are a failure? 😭", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
+    {"question": "Do you feel isolated or lonely? 🪽‍♂️", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
+    {"question": "Do you experience mood swings? ⛆️", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]},
     {"question": "Have you lost interest in activities you once enjoyed? 🎶", "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]}
 ]
 
@@ -42,12 +42,8 @@ def get_questions():
 @app.route('/calculate_score', methods=['POST'])
 def calculate_score():
     answers = request.json.get('answers', [])
-    score = 0
-    
-    for answer in answers:
-        if answer in score_map:
-            score += score_map[answer]
-    
+    score = sum(score_map.get(answer, 0) for answer in answers)
+
     result = {}
     if score <= 10:
         result['text'] = "😊 You're doing great! Keep practicing self-care and stay positive!"
@@ -61,7 +57,7 @@ def calculate_score():
         result['text'] = "😟 It seems like you're going through a tough time. Please consider reaching out to a therapist."
         result['color'] = "#c2185b"
         result['show_therapists'] = True
-    
+
     result['therapists'] = therapists
     return jsonify(result)
 
