@@ -103,7 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
             quizContainer.style.display = 'none';
             resultContainer.style.display = 'block';
 
-            resultText.textContent = data.text;
+            // Display result with score
+            resultText.innerHTML = `
+                ${data.text}
+                <div class="score-display">
+                    Your score: <strong>${data.score}/${data.max_score}</strong>
+                </div>
+            `;
+            
             resultText.style.color = data.color;
 
             therapistsContainer.innerHTML = '';

@@ -148,6 +148,22 @@ button:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Score Display */
+.score-display {
+    margin: 25px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    font-size: 1.2em;
+    border: 2px dashed #d6336c;
+    text-align: center;
+}
+
+.score-display strong {
+    color: #d6336c;
+    font-size: 1.3em;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .info-cards {

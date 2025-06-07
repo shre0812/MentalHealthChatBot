@@ -43,6 +43,7 @@ def get_questions():
 def calculate_score():
     answers = request.json.get('answers', [])
     score = sum(score_map.get(answer, 0) for answer in answers)
+    max_score = len(questions) * 4  # Calculate maximum possible score
 
     result = {}
     if score <= 10:
@@ -54,10 +55,12 @@ def calculate_score():
         result['color'] = "#fb8c00"
         result['show_therapists'] = False
     else:
-        result['text'] = "😟 It seems like you're going through a tough time. Please consider reaching out to a therapist."
+        result['text'] = "😟 It seems like you're going through a tough time. Please consider reaching out to a clinical therapist."
         result['color'] = "#c2185b"
         result['show_therapists'] = True
 
+    result['score'] = score
+    result['max_score'] = max_score
     result['therapists'] = therapists
     return jsonify(result)
 
